@@ -16,8 +16,10 @@ Users
   | sex | string |
   
   | age | string |
+  
 
 Tasks
+
 | カラム名 | データ型 |
 
   | :--- | :--- |
@@ -35,8 +37,10 @@ Tasks
   | priority | string |
 
   | status | string |
+  
 
 laberings
+
 | カラム名 | データ型 |
 
   | :--- | :--- |
@@ -46,8 +50,10 @@ laberings
   | task_id(FK) | references |
 
   | label_id(FK) | references|
+  
 
 Labels
+
   | カラム名 | データ型 |
 
   | --- | --- |
