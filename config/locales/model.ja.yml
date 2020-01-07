@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      task: タスク
+      user: ユーザー
+      lavel: ラベル
+
+    attributes:
+      task:
+        title: タイトル
+        content: 内容
+        time-limit: 期限
+        status: 状態
+        priority: 優先度
+      lavel:
+        lavel_name: ラベル名
+      user:
+        title: タイトル
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        age: 年齢
+        sex: 性別
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
