@@ -1,11 +1,17 @@
 # README
 Users
 | カラム名 | データ型 |
+
 | :--- | :--- |
+
 | id | integer |
+
 | name | string |
+
 | e-mail | stiring |
+
 | password-digest | string |
+
 | sex | string |
 | age | string |
 
