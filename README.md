@@ -30,10 +30,11 @@
 |lavel_name|string|
 
 #### heroku デプロイ手順
-|:--:|
-|$ rails assets:precompile RAILS_ENV=production|
-|$ git add -A|
-|$ git commit -m "init"|
-|$ heroku create|
-|$ git push heroku master|
-|$ heroku run rails db:migrate|
+|手順|コマンド|
+|:--:|:--:|
+|1|$ rails assets:precompile RAILS_ENV=production|
+|2|$ git add -A|
+|3|$ git commit -m "init"|
+|4|$ heroku create|
+|5|$ git push heroku master|
+|6|$ heroku run rails db:migrate|
