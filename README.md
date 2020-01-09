@@ -29,9 +29,11 @@
 |id|integer|
 |lavel_name|string|
 
-heroku デプロイ手順
-$ rails assets:precompile RAILS_ENV=production
-$ git add -A
-$ git commit -m "init"
-$ heroku create
-$ git push heroku master
+#### heroku デプロイ手順
+|:--:|
+|$ rails assets:precompile RAILS_ENV=production|
+|$ git add -A|
+|$ git commit -m "init"|
+|$ heroku create|
+|$ git push heroku master|
+|$ heroku run rails db:migrate|
