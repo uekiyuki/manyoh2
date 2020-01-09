@@ -27,7 +27,7 @@
 |カラム名|データ型|
 |:--:|:--:|
 |id|integer|
-|lavel_name|string|
+|name|string|
 
 #### heroku デプロイ手順
 |手順|コマンド|
