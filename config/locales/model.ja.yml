@@ -4,6 +4,7 @@ ja:
       task: タスク
       user: ユーザー
       lavel: ラベル
+      # tasks:　タスク一覧
 
     attributes:
       task:
@@ -12,6 +13,7 @@ ja:
         time-limit: 期限
         status: 状態
         priority: 優先度
+        tasks: タスク一覧
       lavel:
         lavel_name: ラベル名
       user:
