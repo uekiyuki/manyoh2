@@ -4,16 +4,17 @@ ja:
       task: タスク
       user: ユーザー
       lavel: ラベル
-      # tasks:　タスク一覧
-
     attributes:
       task:
         title: タイトル
         content: 内容
-        time-limit: 期限
+        time_limit: 期限
         status: 状態
-        priority: 優先度
+        påriority: 優先度
         tasks: タスク一覧
+        not started yet: 未着手
+        Done: 完了
+        WIP: 着手中
       lavel:
         lavel_name: ラベル名
       user:

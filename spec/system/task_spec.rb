@@ -8,6 +8,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     # あらかじめタスク一覧のテストで使用するためのタスクを二つ作成する
     FactoryBot.create(:task)
     FactoryBot.create(:second_task)
+    FactoryBot.create(:third_task)
   end
 
   describe 'タスク一覧画面' do
@@ -31,11 +32,8 @@ RSpec.describe 'タスク管理機能', type: :system do
         task_list = Task.all 
         # byebug
         # expect(page).to have_text /.*new_task.*task.*/m
-        expect(task_list[0].content).to eq 'new_task1'
+        expect(task_list[0].content).to eq 'Factoryで作ったデフォルトのコンテント１'
         # expect(Task.order("updated_at DESC").map(&:id))
-        save_and_open_page  
-        
-        # 省略
       end
     end
   end
@@ -77,5 +75,31 @@ RSpec.describe 'タスク管理機能', type: :system do
       end
     end
   end
+
+  describe 'タスク終了期限でソート' do
+    context '終了期限でソートするというボタンをクリックした場合' do
+      it '終了期限の降順に並び替えられたタスク一覧ページに遷移' do
+        # visit new_task_path
+        # fill_in "task[title]", with: "test_title02"
+        # fill_in "task[content]", with: "test_title02"
+        # fill_in "task[time_limit]", with: "DateTime"
+        # click_on '登録する'  
+        # visit tasks_path(sort_expired: "true")
+        # # task_list = Task.all.order(time_limit: :desc) 
+        # click_on '終了期限でソートする' 
+        # save_and_open_page  
+        visit tasks_path(sort_expired: "true")
+        #タスクが終了期限の降順に並んでいる
+        expect(Task.order("time_limit DESC").map(&:id))
+        # byebug
+        # expect(page).to htave_text /.*new_task.*task.*/m
+        # expect(task_list[0].title).to eq 'test_title02'
+      end
+    end
+  end 
+
+
+
+
 
 end

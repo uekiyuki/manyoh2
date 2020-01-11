@@ -1,7 +1,13 @@
 class TasksController < ApplicationController
+  # require 'byebug'; byebug
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
-    @tasks = Task.all
+    if params[:sort_expired]
+      @task = Task.all.order(time_limit: :desc)
+    
+    else
+      @task = Task.all.order(created_at: :desc)
+    end
   end
 
   def new
@@ -41,7 +47,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content, :time_limit, :sort_expired, :status )
   end
 
   def set_task

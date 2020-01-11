@@ -140,6 +140,9 @@ ja:
   helpers:
     select:
       prompt: 選択してください
+      not started yet: 未着手
+      Done: 完了
+      WIP: 着手中
     submit:
       create: 登録する
       submit: 保存する
@@ -215,7 +218,14 @@ ja:
     new: 新しくタスクを作成する
     back_to_index: タスク一覧画面にもどる
     error_info: 件のエラーがあります.
-    
+    time_limit: 終了期限
+    confirm_edit: 本当に編集していいですか？
+    confirm_delete: 本当に削除して良いですか？
+    time_limit_sort: 終了期限でソートする
+    status: 状態
+
+
+
 
 
 
