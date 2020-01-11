@@ -19,6 +19,18 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+    <div class="task_time_limit">
+    <%= form.label :time_limit %>
+    <%= form.date_field :time_limit %>
+  </div>
+  <div class="task_status">
+    <%= form.label :status %>
+    <%= form.select :status,
+    ["未着手","作業中","完了"] %>
+  </div>
+
+
+
   <div class="button">
   <%= form.submit %>
   </div>
