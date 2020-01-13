@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails-i18n'
 gem 'enum_help'
+gem 'kaminari'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -24,6 +26,8 @@ group :development, :test do
   gem 'faker'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'pry-rails'
+  gem 'better_errors'
 end
 
 group :development do
@@ -41,4 +45,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'kaminari'

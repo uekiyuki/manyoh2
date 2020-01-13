@@ -219,9 +219,9 @@ ja:
     tasks: タスク一覧
     title: タイトル
     content: 内容
-    show: 詳細を確認する
-    edit: タスクを編集する
-    delete: タスクを削除する
+    show: 確認
+    edit: 編集
+    delete: 削除
     new: 新しくタスクを作成する
     back_to_index: タスク一覧画面にもどる
     error_info: 件のエラーがあります.
