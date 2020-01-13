@@ -40,6 +40,9 @@
 
 
 </table>
+<%= paginate @task %>
+<%= page_entries_info @task %><br>
+
 
 <%= link_to t('view.time_limit_sort'), tasks_path(sort_expired: "true") %><br>
 <%= link_to t('view.priority_sort'), tasks_path(sort_priority: "true") %><br>

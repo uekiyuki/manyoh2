@@ -15,6 +15,8 @@ class TasksController < ApplicationController
     else
       @task = Task.latest
     end 
+    @task = @task.page(params[:page]).per(7)
+        @task = @task.page(params[:page]).per(7)
 
   end
 
