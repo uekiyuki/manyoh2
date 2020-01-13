@@ -12,28 +12,29 @@
   <% end %>
 
   <div class="task_title">
+
     <%= form.label :title %>
     <%= form.text_field :title %>
-  </div>
-  <div class="task_content">
+  
     <%= form.label :content %>
     <%= form.text_field :content %>
-  </div>
-    <div class="task_time_limit">
+
     <%= form.label :time_limit %>
     <%= form.date_field :time_limit %>
-  </div>
-  <div class="task_status">
+
     <%= form.label :status %>
     <%= form.select :status,
     ["未着手","作業中","完了"] %>
+
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priorities_i18n.invert, {} %>
+
+    <%= form.submit %>
+
   </div>
-
-
-
-  <div class="button">
-  <%= form.submit %>
-  </div>
-  <%= link_to t('view.back_to_index'), tasks_path %>
 <% end %>
+
+<br>
+  <%= link_to t('view.back_to_index'), tasks_path %>
+
 

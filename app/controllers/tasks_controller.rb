@@ -3,14 +3,17 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
 #  byebug
-    if params[:sort_expired]
+    if  params[:sort_priority]
+      # @tasks = Task.order(priority: :asc)
+      @task =  Task.priority  
+    elsif  params[:sort_expired]
       # @task = Task.all.order(time_limit: :desc)
       @task = Task.expired
     elsif params[:search]
       # @task = Task.where("title LIKE ? AND status LIKE ?", "%#{ params[:title] }%", "%#{params[:status]}%")
       @task = Task.search(params)
     else
-      @task = Task.all.order(created_at: :desc)
+      @task = Task.latest
     end 
 
   end
@@ -52,7 +55,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :content, :time_limit, :sort_expired, :status, )
+    params.require(:task).permit(:title, :content, :time_limit, :sort_expired, :status, :priority)
   end
 
   def set_task

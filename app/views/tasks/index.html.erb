@@ -5,10 +5,10 @@
 <div class="search-form">
   <%= form_with(url: tasks_path, method: :get, local: true) do |f| %>
       <%= f.label :title_serch, "タイトル検索" %>
-      <%= f.text_field :title, class: 'from-control' %>
-      
+      <%= f.text_field :title_key, class: 'from-control' %>
+    
       <%= f.label :title_serch, "状態検索" %>
-      <%= f.select :status,["未着手","作業中","完了"], class: 'from-control' %>
+      <%= f.select :status_key,["未着手","作業中","完了"], class: 'from-control' %>
 
     <%= f.hidden_field :search, value: 'true' %>
     <p><%= f.submit '検索する'%><p>
@@ -20,6 +20,7 @@
     <th><%= t('view.content')%></th>
     <th><%= t('view.time_limit')%></th>
     <th><%= t('view.status')%></th>
+    <th><%= t('view.priority')%></th>
 
   </tr>
 
@@ -29,6 +30,7 @@
     <td><%= task.content %></td>
     <td><%= task.time_limit %></td>
     <td><%= task.status %></td>
+    <td><%= task.priority %></td>
 
     <td><%= link_to t('view.show'), task_path(task.id) %></td>
     <td><%= link_to t('view.edit'), edit_task_path(task.id), data: { confirm: t('view.confirm_edit') } %><td>
@@ -39,5 +41,6 @@
 
 </table>
 
-<%= link_to t('view.time_limit_sort'), tasks_path(sort_expired: "true") %>
+<%= link_to t('view.time_limit_sort'), tasks_path(sort_expired: "true") %><br>
+<%= link_to t('view.priority_sort'), tasks_path(sort_priority: "true") %><br>
 <%= link_to t('view.new'), new_task_path %>
