@@ -1,4 +1,10 @@
 ja:
+  enums:
+    task:
+      priority:
+        high: 高
+        medium: 中
+        low: 低
   activerecord:
     errors:
       messages:
@@ -6,6 +12,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
   date:
     abbr_day_names:
     - 日
@@ -222,7 +229,13 @@ ja:
     confirm_edit: 本当に編集していいですか？
     confirm_delete: 本当に削除して良いですか？
     time_limit_sort: 終了期限でソートする
+    priority_sort: 優先度でソートする
     status: 状態
+    priority: 優先度
+
+
+
+        
 
 
 
