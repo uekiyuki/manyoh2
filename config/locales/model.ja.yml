@@ -10,11 +10,11 @@ ja:
         content: 内容
         time_limit: 期限
         status: 状態
-        påriority: 優先度
+        priority: 優先度
         tasks: タスク一覧
         not started yet: 未着手
         Done: 完了
-        WIP: 着手中
+        WIP: 作業中     
       lavel:
         lavel_name: ラベル名
       user:
