@@ -54,6 +54,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     visit tasks_path
     click_on '終了期限でソートする'
     all('table td')[5].click_link '詳細'
+    sleep 3
     expect(page).to have_content '2020-01-01'
         end
     end
@@ -64,7 +65,7 @@ RSpec.describe 'タスク管理機能', type: :system do
       it '優先度の降順に並び替えられたタスク一覧ページに遷移' do
         visit tasks_path
         click_on '優先度でソートする'
-        sleep 1
+        sleep 3
         all('table td')[5].click_link '詳細'   
         expect(page).to have_content 'タイトル3'
       end 
@@ -75,8 +76,9 @@ RSpec.describe 'タスク管理機能', type: :system do
     context '作業中で検索するというボタンをクリックした場合' do
       it 'タスク一覧に作業中のタスクが表示される' do
         visit tasks_path
-        select '作業中', from: 'status_key'        
-        click_on '検索する'
+        select '作業中', from: 'status_key'       
+        click_on '検索'
+        sleep 3
         expect(page).to have_selector 'td', text: '作業中'
         expect(page).not_to have_selector 'td', text: '完了'
         expect(page).not_to have_selector 'td', text: '未着手'

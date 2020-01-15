@@ -17,7 +17,6 @@ class TasksController < ApplicationController
     end 
     @task = @task.page(params[:page]).per(7)
         @task = @task.page(params[:page]).per(7)
-
   end
 
   def new
