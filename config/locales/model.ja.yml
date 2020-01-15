@@ -12,9 +12,9 @@ ja:
         status: 状態
         priority: 優先度
         tasks: タスク一覧
-        not started yet: 未着手
-        Done: 完了
-        WIP: 作業中     
+        # high: 高
+        # medium: 中
+        # low: 低 
       lavel:
         lavel_name: ラベル名
       user:
