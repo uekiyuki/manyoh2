@@ -232,6 +232,10 @@ ja:
     priority_sort: 優先度でソートする
     status: 状態
     priority: 優先度
+    high: 高
+    title_serch: タイトル検索
+    status_serch: 状態検索
+    serch: 検索
 
 
 

@@ -1,11 +1,7 @@
 require 'rails_helper'
 
-# RSpec.describe Task, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
-
 RSpec.describe 'タスク管理機能', type: :model do
-
+# バリデーションにmodelのテストを追加してみましょう。
   it 'titleが空ならバリデーションが通らない' do
     task = Task.new(title: '', content: '失敗テスト')
     expect(task).not_to be_valid
@@ -20,7 +16,7 @@ RSpec.describe 'タスク管理機能', type: :model do
     task = Task.new(title: '成功テスト', content: '成功テスト')
     expect(task).to be_valid
   end
-
+# 検索ロジックのmodelのテストを追加してみましょう。
   it "検索ロジック" do
     FactoryBot.create(:task)
     FactoryBot.create(:second_task)
@@ -34,6 +30,3 @@ RSpec.describe 'タスク管理機能', type: :model do
     expect(result.size).to eq 1
   end
 end
-
-# バリデーションにmodelのテストを追加してみましょう。
-# 検索ロジックのmodelのテストを追加してみましょう。

@@ -4,14 +4,14 @@
 
 <div class="search-form">
   <%= form_with(url: tasks_path, method: :get, local: true) do |f| %>
-      <%= f.label :title_serch, "タイトル検索" %>
+      <%= f.label :title_serch, t('title_search') %>
       <%= f.text_field :title_key, class: 'from-control' %>
     
-      <%= f.label :title_serch, "状態検索" %>
-      <%= f.select :status_key,["未着手","作業中","完了"], class: 'from-control' %>
+      <%= f.label :title_serch, t('status_search') %>
+      <%= f.select :status_key, [t('not started yet'),t('WIP'),t('Done')], class: 'from-control' %>
 
     <%= f.hidden_field :search, value: 'true' %>
-    <p><%= f.submit '検索する'%><p>
+    <p><%= f.submit t('search')%><p>
     <hr>
   <% end %>
 

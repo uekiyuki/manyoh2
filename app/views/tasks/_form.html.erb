@@ -24,7 +24,7 @@
 
     <%= form.label :status %>
     <%= form.select :status,
-    ["未着手","作業中","完了"] %>
+    [t('not started yet'),t('WIP'),t('Done')] %>
 
     <%= form.label :priority %>
     <%= form.select :priority, Task.priorities_i18n.invert, {} %>
