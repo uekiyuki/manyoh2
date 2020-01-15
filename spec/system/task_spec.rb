@@ -75,8 +75,8 @@ RSpec.describe 'タスク管理機能', type: :system do
     context '作業中で検索するというボタンをクリックした場合' do
       it 'タスク一覧に作業中のタスクが表示される' do
         visit tasks_path
-        select '作業中', from: 'status_key'        
-        click_on '検索する'
+        select '作業中', from: 'status_key'       
+        click_on '検索'
         expect(page).to have_selector 'td', text: '作業中'
         expect(page).not_to have_selector 'td', text: '完了'
         expect(page).not_to have_selector 'td', text: '未着手'
