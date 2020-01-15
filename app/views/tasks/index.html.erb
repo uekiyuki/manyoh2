@@ -12,6 +12,7 @@
 
     <%= f.hidden_field :search, value: 'true' %>
     <p><%= f.submit '検索する'%><p>
+    <hr>
   <% end %>
 
 <table>
@@ -21,7 +22,6 @@
     <th><%= t('view.time_limit')%></th>
     <th><%= t('view.status')%></th>
     <th><%= t('view.priority')%></th>
-
   </tr>
 
 <% @task.each do |task| %>
@@ -38,12 +38,11 @@
   </tr>
 <% end %>
 
-
 </table>
 <%= paginate @task %>
 <%= page_entries_info @task %><br>
 
-
+  <hr>
 <%= link_to t('view.time_limit_sort'), tasks_path(sort_expired: "true") %><br>
 <%= link_to t('view.priority_sort'), tasks_path(sort_priority: "true") %><br>
 <%= link_to t('view.new'), new_task_path %>
