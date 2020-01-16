@@ -1,0 +1,10 @@
+<h1><%= t('show') %></h1>
+
+<p><%= t('name') %> : <%= @user.name %></p>
+<p><%= t('email') %> : <%= @user.email %></p>
+<p><%= t('admin') %> : <%= @user.admin %></p>
+<p><%= t('created_at')%> : <%= @user.created_at %></p>
+<p><%= t('updated_at')%> : <%= @user.updated_at %></p>
+
+  <%= link_to t('users'), admin_users_path %>
+

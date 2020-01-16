@@ -24,6 +24,7 @@ ja:
         current_password: 現在のパスワード
         age: 年齢
         sex: 性別
+        admin: 管理者権限
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶

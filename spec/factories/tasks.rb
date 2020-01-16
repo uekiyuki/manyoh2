@@ -6,7 +6,7 @@ FactoryBot.define do
     content { 'コンテント1' }
     time_limit {'2020-01-03'}
     status {"作業中"}
-    priority {'low'}
+    priority {'high'}
   end
 
   factory :second_task, class: Task do
@@ -22,7 +22,7 @@ FactoryBot.define do
     content { 'コンテント3' }
     time_limit {'2020-01-01'}
     status {"未着手"}
-    priority {'high'}
+    priority {'low'}
   end
 
 end
