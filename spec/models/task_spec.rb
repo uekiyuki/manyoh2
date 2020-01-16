@@ -16,17 +16,42 @@ RSpec.describe 'タスク管理機能', type: :model do
     task = Task.new(title: '成功テスト', content: '成功テスト')
     expect(task).to be_valid
   end
+
+  context "modelに記載したscopeのをテスト" do
+    before  do
+      FactoryBot.create(:task)
+      FactoryBot.create(:second_task)
+      FactoryBot.create(:third_task)
+    end
 # 検索ロジックのmodelのテストを追加してみましょう。
-  it "検索ロジック" do
-    FactoryBot.create(:task)
-    FactoryBot.create(:second_task)
-    FactoryBot.create(:third_task)
-    FactoryBot.create(:task, status: "未着手")
-    FactoryBot.create(:second_task, status: "未着手")
-    expect_task = FactoryBot.create(:third_task, status: "完了")
-    result = Task.search(title_key: "タイトル3", status_key: "完了")
-    # binding.irb
-    expect(result[0].id).to be expect_task.id
+  it "scope: serchで絞り込みのテスト" do
+    #絞り込んだら、完了となっているタスクが１つ表示される。
+    result = Task.search(title_key: "タイトル3")
     expect(result.size).to eq 1
   end
+
+  it "scope: latest(作成日時の新しい順）でソートのテスト" do
+    result = Task.latest
+    expect(result[0].content).to eq 'コンテント3'
+    expect(result[1].content).to eq 'コンテント2'
+    expect(result[2].content).to eq 'コンテント1'
+  end
+
+  it "scope: expired(終了期限の近い）でソートのテスト" do
+    result = Task.expired
+    expect(result[0].content).to eq 'コンテント1'
+    expect(result[1].content).to eq 'コンテント2'
+    expect(result[2].content).to eq 'コンテント3'
+  end
+
+  it "scope: priority(優先度）でソートのテスト" do
+    result = Task.priority
+    expect(result[0].priority).to eq 'high'
+    expect(result[1].priority).to eq 'medium'
+    expect(result[2].priority).to eq 'low'
+  end# it "scope: priority(優先度）でソートのテスト" do
+
+  end
 end
+
+

@@ -3,7 +3,7 @@ ja:
   user: ユーザー
   task_name: タスク名
   note: 内容
-  user_name: ユーザー名
+  name: ユーザー名
   email: メールアドレス
   current_password: 現在のパスワード
   password: パスワード
@@ -35,16 +35,29 @@ ja:
   admin: 管理者権限
   admin_user_name: 管理ユーザー名
   updated_at: 更新日時
-  now_logged: ログインしました
-  now_logout: ログアウトしました
+  log_in: ログインしました
+  log_out: ログアウトしました
   logout: ログアウト
   sigin_up: サインアップ
   task_count: タスク数
   login: ログイン
-  # high: 高
+  # high: 高s
   # medium: 中
   # low: 低 
   not started yet: 未着手
   Done: 完了
   WIP: 作業中
+  Sing_up: 新規登録
+  log_in: ログイン
+  log_out: ログアウト
+  user:
+  title: タイトル
+  name: 名前
+  email: メールアドレス
+  current_password: 現在のパスワード
+  age: 年齢
+  sex: 性別
+  password: パスワード
+  password_confirmation: 確認用パスワード
+  remember_me: ログインを記憶
   
