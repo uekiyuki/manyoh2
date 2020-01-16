@@ -33,16 +33,22 @@ RSpec.describe 'タスク管理機能', type: :model do
   it "scope: latest(作成日時の新しい順）でソートのテスト" do
     result = Task.latest
     expect(result[0].content).to eq 'コンテント3'
+    expect(result[1].content).to eq 'コンテント2'
+    expect(result[2].content).to eq 'コンテント1'
   end
 
-  it "scope: expired(終了期限）でソートのテスト" do
+  it "scope: expired(終了期限の近い）でソートのテスト" do
     result = Task.expired
-    expect(result[0].content).to eq 'コンテント3'
+    expect(result[0].content).to eq 'コンテント1'
+    expect(result[1].content).to eq 'コンテント2'
+    expect(result[2].content).to eq 'コンテント3'
   end
 
   it "scope: priority(優先度）でソートのテスト" do
     result = Task.priority
-    expect(result[0].content).to eq 'コンテント1'
+    expect(result[0].priority).to eq 'high'
+    expect(result[1].priority).to eq 'medium'
+    expect(result[2].priority).to eq 'low'
   end# it "scope: priority(優先度）でソートのテスト" do
 
   end

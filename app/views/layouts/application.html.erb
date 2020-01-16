@@ -10,8 +10,19 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    <% if current_user %>
+      <%= link_to "tasks", tasks_path(current_user.id)  %>
+      <%= link_to "users", users_path(current_user.id) %>
+      <%= link_to "logout", logout_path(current_user.id), method: :delete  %>
+    <% else %>
+      <%= link_to "Sign up", new_admin_user_path , class: 'nav-link'%>
+      <%= link_to "login", login_path, class: 'nav-link' %>
+    <% end %>
     <%= yield %>
-  </body>
+  </body> 
 
   <footer>
     <p>運営会社　うえき 株式会社</p>
