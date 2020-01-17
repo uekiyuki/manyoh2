@@ -10,13 +10,11 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
+
     <% if current_user %>
       <%= link_to "tasks", tasks_path(current_user.id)  %>
-      <%= link_to "users", users_path(current_user.id) %>
-      <%= link_to "logout", logout_path(current_user.id), method: :delete  %>
+      <%= link_to "users", admin_users_path(current_user.id) %>
+      <%= link_to "logout", logout_path, method: :delete,　class: 'nav-link'  %>
     <% else %>
       <%= link_to "Sign up", new_admin_user_path , class: 'nav-link'%>
       <%= link_to "login", login_path, class: 'nav-link' %>
