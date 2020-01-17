@@ -50,7 +50,6 @@ RSpec.describe 'タスク管理機能', type: :model do
     expect(result[1].priority).to eq 'medium'
     expect(result[2].priority).to eq 'low'
   end# it "scope: priority(優先度）でソートのテスト" do
-
   end
 end
 
