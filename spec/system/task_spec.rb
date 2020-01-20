@@ -2,22 +2,32 @@ require 'rails_helper'
 
 RSpec.describe 'タスク管理機能', type: :system do
   before do
-    FactoryBot.create(:task)
-    FactoryBot.create(:second_task)
-    FactoryBot.create(:third_task)
+    # FactoryBot.create(:label)
+    # label_a = FactoryBot.create(:second_label)
+    user_a = FactoryBot.create(:user)
+    user_b = FactoryBot.create(:second_user)
+    FactoryBot.create(:task, user: user_a)
+    FactoryBot.create(:second_task, user: user_a)
+    task_c = FactoryBot.create(:third_task, user: user_a)
+    # FactoryBot.create(:labelling, task: task_c)
+
+    visit root_path
+    fill_in "session_email", with: "test1@example.com"
+    fill_in "session_password", with: "passwordpassword"
+    click_button "ログイン"
   end
 
   describe 'タスク一覧画面' do
     context 'タスクを作成した場合' do
       it '作成済みのタスクが表示されること' do
         visit tasks_path 
-        expect(page).to have_content 'タイトル1'
+        all('table td')[5].click_link '詳細'
+        expect(page).to have_content 'タイトル3'
       end
     end
   end
     context '複数のタスクを作成した場合' do
       it 'タスクが作成日時の降順に並んでいること' do
-        new_task = FactoryBot.create(:task, title: 'new_task', content: 'new_task1' )
         visit tasks_path
         task_list = Task.all 
         expect(task_list[0].content).to eq 'コンテント1'
@@ -40,10 +50,10 @@ RSpec.describe 'タスク管理機能', type: :system do
   describe 'タスク詳細画面' do
     context '任意のタスク詳細画面に遷移した場合' do
       it '該当タスクの内容が表示されたページに遷移すること' do
-        @task1 = Task.create(title: "title01", content: "content01")
-        visit task_path(@task1)
-        expect(page).to have_content 'title01'
-        expect(page).to have_content 'content01'
+        visit tasks_path
+    # binding.irb
+        all('table td')[5].click_link '詳細'
+        expect(page).to have_content 'タイトル3'
       end
     end
   end
@@ -67,7 +77,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         click_on '優先度でソートする'
         expect(page).to have_content 'タスク一覧'
         all('table td')[5].click_link '詳細'   
-        expect(page).to have_content 'タイトル3'
+        expect(page).to have_content 'タイトル1'
       end 
     end
   end
