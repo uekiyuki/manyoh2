@@ -1,7 +1,6 @@
-# 
 FactoryBot.define do
   
-  factory :task do
+  factory :task do  
     title { 'タイトル1' }
     content { 'コンテント1' }
     time_limit {'2020-01-01'}
@@ -17,7 +16,6 @@ FactoryBot.define do
     status {"完了"}
     priority {'medium'}
     created_at{"2019-01-02"}
-
   end
 
   factory :third_task, class: Task do
@@ -27,7 +25,6 @@ FactoryBot.define do
     status {"未着手"}
     priority {'low'}
     created_at{"2019-01-03"}
-
   end
 
 end

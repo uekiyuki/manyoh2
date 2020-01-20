@@ -12,30 +12,20 @@
     </div>
 <% end %>
     
-    <%= f.label :name %>
-    <br>
-    <%= f.text_field :name, class: 'form_control' %>
-    <br>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form_control' %><br>
 
-    <%= f.label :email %>
-    <br>
-    <%= f.email_field :email, class: 'form_control' %>
-    <br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, class: 'form_control' %><br>
 
-    <%= f.label :password %>
-    <br>
-    <%= f.password_field :password, class: 'form_control' %>
-    <br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: 'form_control' %><br>
 
-    <%= f.label :password_confirmation %>
-    <br>
-    <%= f.password_field :password_confirmation, class: 'form_control' %>
-    <br>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: 'form_control' %><br>
 
-    <%= f.submit "登録する", class: 'btn btn-primary' %>
-    <br>
+    <%= f.submit "登録する", class: 'btn btn-primary' %><br>
 
     <%= link_to '戻る', root_path %>
-
 
 <% end %>
