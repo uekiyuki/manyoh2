@@ -14,9 +14,9 @@
  *= require_self
  *= require_tree .
  */
+/*  
  @import "bootstrap"
- @import "tasks";
-
+ @import "tasks"; */
 html {
     position: relative;
     min-height: 100%;
