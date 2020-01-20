@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
-//= require bootstrap-sprockets
+
