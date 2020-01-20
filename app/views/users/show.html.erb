@@ -1,0 +1,9 @@
+
+<h1>マイページ</h1>
+<p><%= notice %></p>
+
+<h4>名前: <%= @user.name %></h4>
+<h4>メールアドレス: <%= @user.email %></h4>
+
+<div class="new_task"><%= link_to "タスク作成画面", new_task_path, class:"btn btn-primary" %></div>
+<div class="my_task"><%= link_to "タスク一覧", tasks_path, class:"btn btn-primary" %></div>
