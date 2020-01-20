@@ -1,30 +1,26 @@
 class TasksController < ApplicationController
   # require 'byebug'; byebug
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  def index
-#  byebug
-    if  params[:sort_priority]
-      # @tasks = Task.order(priority: :asc)
-      @task =  Task.priority  
-    elsif  params[:sort_expired]
-      # @task = Task.all.order(time_limit: :desc)
-      @task = Task.expired
-    elsif params[:search]
-      # @task = Task.where("title LIKE ? AND status LIKE ?", "%#{ params[:title] }%", "%#{params[:status]}%")
-      @task = Task.search(params)
-    else
-      @task = Task.latest
-    end 
-    @task = @task.page(params[:page]).per(7)
-        @task = @task.page(params[:page]).per(7)
-  end
 
   def new
     @task = Task.new
   end
 
+  def index
+    if  params[:sort_priority]
+      @task =  current_user.tasks.priority  
+    elsif  params[:sort_expired]
+      @task = current_user.tasks.expired
+    elsif params[:search]
+      @task = current_user.tasks.search(params)
+    else
+      @task = current_user.tasks.latest
+    end 
+    @task = @task.page(params[:page]).per(7)
+  end
+
   def create
-    @task = Task.create(task_params)
+    @task = Task.create(task_params.merge(user_id: current_user.id))
     if @task.save
     redirect_to task_path(@task.id), notice: "タスクを作成しました!"
     else
@@ -38,8 +34,7 @@ class TasksController < ApplicationController
   def edit
   end
 
-  def update
-    
+  def update   
     @task = Task.find(params[:id])
     if @task.update(task_params)
     redirect_to tasks_path, notice: "タスクを編集しました！"
@@ -60,9 +55,8 @@ class TasksController < ApplicationController
   end
 
   def set_task
-  @task = Task.find(params[:id])
+  @task = current_user.tasks.find(params[:id])
   end
-
 
 end
 

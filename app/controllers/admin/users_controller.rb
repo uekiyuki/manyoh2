@@ -2,13 +2,16 @@ class Admin::UsersController < ApplicationController
   # skip_before_action :login_required
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :destroy_myself, only: [:destroy]
-  
+  before_action :require_admin
   def index
     @users = User.all
+
 
   end
 
   def show
+    @user = User.find(params[:id])
+    @tasks = @user.tasks.latest.page(params[:page]).per(8)
   end
 
   def new
@@ -62,3 +65,8 @@ end
                   notice: "自分自身を削除することは出来ません。"
     end
   end
+
+  def require_admin
+    redirect_to user_path(current_user) unless current_user.admin?
+  end
+

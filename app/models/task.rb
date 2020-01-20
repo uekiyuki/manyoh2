@@ -12,4 +12,6 @@ class Task < ApplicationRecord
   scope :priority, -> {order(priority: :asc)}
   enum priority: { high: 0, medium: 1, low: 2 }
 
+  belongs_to :user
+
 end
