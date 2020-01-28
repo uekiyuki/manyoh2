@@ -31,7 +31,8 @@
       <td><%= task.status %></td>
       <td><%= task.priority %></td>
 
-        <td><%= link_to t('view.show'), task_path(task.id) %></td>
+
+      <td><%= link_to t('view.show'), task_path(task.id) %></td>
       <td><%= link_to t('view.edit'), edit_task_path(task.id), data: { confirm: t('view.confirm_edit') } %><td>
       <td><%= link_to t('view.delete'), task_path(task.id), method: :delete , data: { confirm: t('view.confirm_delete') }%><td>
     </tr>

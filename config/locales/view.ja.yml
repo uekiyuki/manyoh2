@@ -2,6 +2,7 @@ ja:
   task: タスク
   user: ユーザー
   task_name: タスク名
+  label: ラベル
   note: 内容
   name: ユーザー名
   email: メールアドレス
@@ -24,6 +25,7 @@ ja:
   status: 状態
   title_search: タスク名検索
   status_search: 状態で絞る
+  label_search: ラベル名で絞る
   search: 検索
   priority: 優先度
   done: 完了

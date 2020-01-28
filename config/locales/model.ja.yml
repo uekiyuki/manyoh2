@@ -3,7 +3,7 @@ ja:
     models:
       task: タスク
       user: ユーザー
-      lavel: ラベル
+      label: ラベル
     attributes:
       task:
         title: タイトル
@@ -12,11 +12,12 @@ ja:
         status: 状態
         priority: 優先度
         tasks: タスク一覧
+        label: ラベル
         # high: 高
         # medium: 中
         # low: 低 
-      lavel:
-        lavel_name: ラベル名
+      label:
+        label_name: ラベル名
       user:
         title: タイトル
         name: 名前
