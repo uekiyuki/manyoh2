@@ -4,6 +4,8 @@ RSpec.describe 'タスク管理機能', type: :system do
   before do
     # FactoryBot.create(:label)
     # label_a = FactoryBot.create(:second_label)
+    FactoryBot.create(:label)
+    FactoryBot.create(:label2)
     user_a = FactoryBot.create(:user)
     user_b = FactoryBot.create(:second_user)
     FactoryBot.create(:task, user: user_a)
@@ -21,8 +23,8 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'タスクを作成した場合' do
       it '作成済みのタスクが表示されること' do
         visit tasks_path 
-        all('table td')[5].click_link '詳細'
-        expect(page).to have_content 'タイトル3'
+        all('table td')[6].click_link '詳細'
+        expect(page).to have_content 'タイトル1'
       end
     end
   end
@@ -52,8 +54,8 @@ RSpec.describe 'タスク管理機能', type: :system do
       it '該当タスクの内容が表示されたページに遷移すること' do
         visit tasks_path
     # binding.irb
-        all('table td')[5].click_link '詳細'
-        expect(page).to have_content 'タイトル3'
+        all('table td')[6].click_link '詳細'
+        expect(page).to have_content 'タイトル1'
       end
     end
   end
@@ -64,7 +66,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     visit tasks_path
     click_on '終了期限でソートする'
     expect(page).to have_content 'タスク一覧'
-    all('table td')[5].click_link '詳細'
+    all('table td')[6].click_link '詳細'
     expect(page).to have_content '2020-01-01'
         end
     end
@@ -76,7 +78,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         click_on '優先度でソートする'
         expect(page).to have_content 'タスク一覧'
-        all('table td')[5].click_link '詳細'   
+        all('table td')[6].click_link '詳細'   
         expect(page).to have_content 'タイトル1'
       end 
     end
@@ -95,6 +97,36 @@ RSpec.describe 'タスク管理機能', type: :system do
       end
     end
   end
+  
+  describe 'ラベル作成' do
+    context '編集画面で、タスクにラベルを複数付けた時' do
+      it '詳細画面で確認できる' do
+        visit tasks_path
+        all('table td')[7].click_link '編集'
+        page.driver.browser.switch_to.alert.accept
+
+        # byebug
+        
+        check ('task_label_ids_1')
+        check ('task_label_ids_2')
+        click_on '更新する'
+        expect(page).to have_content 'sample１'
+        expect(page).to have_content 'sample2'
+      end
+    end
+  end
+
+  describe 'ラベルで検索できる' do
+    context '一覧画面で、ラベルを選択肢、検索を押すと' do
+      it '該当ラベルを含むタスクが表示される' do
+        visit tasks_path
+        select('sample2', from: 'label_id')
+        click_button '検索'
+        expect(page).to have_content 'sample2'
+      end
+    end
+  end 
+
 end
 # save_and_open_page  
 # byebug

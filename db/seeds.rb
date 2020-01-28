@@ -21,3 +21,7 @@ User.create(
   password: "1111", 
   admin: "true"
 )
+
+5.times do |i|
+  Label.create!(name: "sample#{i + 1}")
+end

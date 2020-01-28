@@ -7,6 +7,7 @@ FactoryBot.define do
     status {"作業中"}
     priority {'high'}
     created_at{"2019-01-01"}
+
   end
 
   factory :second_task, class: Task do
