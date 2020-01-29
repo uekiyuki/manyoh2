@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head> 
-
   <body>
   <header id="header">
     <div class="logo">
@@ -22,7 +21,6 @@
         <li><%= link_to 'ログアウト', logout_path, method: :delete,　class: 'nav-link'  %></li>
         <li><%= link_to current_user.name, user_path(current_user.id) %></li>
       </ul>
-
     <% else %>
       <ul>
       <%= link_to t('sigin_up'), new_user_path %>

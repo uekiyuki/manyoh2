@@ -5,38 +5,19 @@
       <ul>
     <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-  <% end %>
+    <% end %>
       </ul>
     </div>
-<% end %>
-    
-    <%= f.label :name %>
-    <br>
-    <%= f.text_field :name, class: 'form_control' %>
-    <br>
-
-    <%= f.label :email %>
-    <br>
-    <%= f.email_field :email, class: 'form_control' %>
-    <br>
-
-    <%= f.label :password %>
-    <br>
-    <%= f.password_field :password, class: 'form_control' %>
-    <br>
-
-    <%= f.label :password_confirmation %>
-    <br>
-    <%= f.password_field :password_confirmation, class: 'form_control' %>
-    <br>
-
-    </div>
-
-    <%= f.label :admin %>
-    <br>
-    <%= f.check_box :admin, class: 'form_control' %>
-    <br>
-  
-    <%= f.submit "登録する", class: 'btn btn-primary' %>
-    <br>
+  <% end %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form_control' %><br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, class: 'form_control' %><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: 'form_control' %><br>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: 'form_control' %><br>
+    <%= f.label :admin %> <br>
+    <%= f.check_box :admin, class: 'form_control' %><br>
+    <%= f.submit "登録する", class: 'btn btn-primary' %><br>
 <% end %>

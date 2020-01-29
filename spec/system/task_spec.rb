@@ -104,9 +104,6 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         all('table td')[7].click_link '編集'
         page.driver.browser.switch_to.alert.accept
-
-        # byebug
-        
         check ('task_label_ids_1')
         check ('task_label_ids_2')
         click_on '更新する'
@@ -126,7 +123,6 @@ RSpec.describe 'タスク管理機能', type: :system do
       end
     end
   end 
-
 end
 # save_and_open_page  
 # byebug
