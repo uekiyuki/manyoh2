@@ -1,27 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe 'タスク管理機能', type: :model do
+  before do
+    @user1 = FactoryBot.create(:user)
+  end
 # バリデーションにmodelのテストを追加してみましょう。
   it 'titleが空ならバリデーションが通らない' do
-    task = Task.new(title: '', content: '失敗テスト')
+    task = Task.new(title: '', content: '失敗テスト', user_id: @user1.id)
     expect(task).not_to be_valid
   end
 
   it 'contentが空ならバリデーションが通らない' do
-    task = Task.new(title: '失敗テスト2', content: '')
+    task = Task.new(title: '失敗テスト2', content: '', user_id: @user1.id)
     expect(task).not_to be_valid
   end
 
   it 'titleとcontentに内容が記載されていればバリデーションが通る' do
-    task = Task.new(title: '成功テスト', content: '成功テスト')
+    task = Task.new(title: '成功テスト', content: '成功テスト', user_id: @user1.id)
     expect(task).to be_valid
   end
 
   context "modelに記載したscopeのをテスト" do
     before  do
-      FactoryBot.create(:task)
-      FactoryBot.create(:second_task)
-      FactoryBot.create(:third_task)
+      FactoryBot.create(:task, user_id: @user1.id)
+      FactoryBot.create(:second_task, user_id: @user1.id)
+      FactoryBot.create(:third_task, user_id: @user1.id)
     end
 # 検索ロジックのmodelのテストを追加してみましょう。
   it "scope: serchで絞り込みのテスト" do
